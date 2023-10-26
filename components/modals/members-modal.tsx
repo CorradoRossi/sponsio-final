@@ -23,7 +23,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+//import { Input } from "@/components/ui/input";
+//import { Button } from "../ui/button";
 import { useModal } from "@/hooks/use-modal-store";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -39,7 +40,6 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSubTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "../ui/button";
 
 const roleIconMap = {
   "GUEST": null,
@@ -51,14 +51,10 @@ export const MembersModal = () => {
   const router = useRouter();
   const { onOpen, isOpen, onClose, type, data } = useModal();
   const [loadingId, setLoadingId] = useState("");
-  const [nameText, setNameText] = useState("");
+  //const [nameText, setNameText] = useState("");
 
   const isModalOpen = isOpen && type === "members";
   const { server } = data as { server: ServerWithMembersWithProfiles };
-
-  useEffect(() => {
-    console.log(nameText, "updated name text");
-  });
 
   const onKick = async (memberId: string) => {
     try {
@@ -105,6 +101,7 @@ export const MembersModal = () => {
     }
   }
 
+  {/**
   const onNameUpdate = async (memberId: string, name: string) => {
     try {
       setLoadingId(memberId);
@@ -126,6 +123,7 @@ export const MembersModal = () => {
       setLoadingId("");
     }
   }
+  */}
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
@@ -145,12 +143,14 @@ export const MembersModal = () => {
             <div key={member.id} className="flex items-center gap-x-2 mb-6">
               <UserAvatar src={member.profile.imageUrl} />
               <div className="flex flex-col gap-y-1">
+                {/**
                 <Input
                   className="bg-white"
                   placeholder="edit name" 
                   onChange={e => setNameText(e.target.value)}
                 />
                 <Button className="" variant="primary" onClick={() => onNameUpdate(member.id, nameText)}>Update Name</Button>
+                */}
                 <div className="text-xs font-semibold flex items-center gap-x-1">
                   {member.profile.name}
                   {roleIconMap[member.role]}
