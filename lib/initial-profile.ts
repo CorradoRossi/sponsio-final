@@ -3,9 +3,7 @@ import { currentUser, redirectToSignIn } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 
 export const initialProfile = async () => {
-  const user = await currentUser();
-
-  console.log(user, "User");
+  const user:any = await currentUser();
 
   if (!user) {
     return redirectToSignIn();
@@ -16,8 +14,6 @@ export const initialProfile = async () => {
       userId: user.id
     }
   });
-
-  console.log(profile, "profile");
   
   if (profile) {
     return profile;
@@ -26,6 +22,9 @@ export const initialProfile = async () => {
   const newProfile = await db.profile.create({
     data: {
       userId: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
       name: `${user.firstName} ${user.lastName}`,
       imageUrl: user.imageUrl,
       email: user.emailAddresses[0].emailAddress
