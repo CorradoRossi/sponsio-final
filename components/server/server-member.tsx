@@ -22,6 +22,7 @@ export const ServerMember = ({
   member,
   server
 }: ServerMemberProps) => {
+  
   const params = useParams();
   const router = useRouter();
 
