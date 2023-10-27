@@ -3,11 +3,11 @@ const { withUt } = require("uploadthing/tw");
 module.exports = withUt({
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -51,6 +51,20 @@ module.exports = withUt({
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        frenchrose: {
+          DEFAULT: "#EC4899",
+          50: "#FDEEF6",
+          100: "#FBDCEB",
+          200: "#F8B7D7",
+          300: "#F492C2",
+          400: "#F06DAE",
+          500: "#EC4899",
+          600: "#E4187D",
+          700: "#B11261",
+          800: "#7F0D45",
+          900: "#4C0829",
+          950: "#32051B",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,4 +88,4 @@ module.exports = withUt({
     },
   },
   plugins: [require("tailwindcss-animate")],
-})
+});
