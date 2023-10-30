@@ -34,9 +34,9 @@ export const SocketProvider = ({
     const socketInstance = new (ClientIO as any)(process.env.NEXT_PUBLIC_SITE_URL!, {
       path: "/api/socket/io",
       addTrailingSlash: false,
-      //reconnection: false,
-      //skipReconnect: true,
-      //reconnectionDelay: 10000,
+      reconnection: false,
+      skipReconnect: true,
+      reconnectionDelay: 10000,
       reconnectionAttempts: 5,
     });
 
@@ -47,9 +47,6 @@ export const SocketProvider = ({
     socketInstance.on("disconnect", () => {
       setIsConnected(false);
     });
-
-    console.log(process.env, "process env");
-    console.log(socketInstance, "socket instance");
 
     setSocket(socketInstance);
 
