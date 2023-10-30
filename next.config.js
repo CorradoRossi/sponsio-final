@@ -11,7 +11,7 @@ const nextConfig = {
   images: {
     domains: [
       "img.clerk.com",
-      "sponsio.life",
+      "app.sponsio.life",
       "uploadthing.com",
       "utfs.io"
     ]
