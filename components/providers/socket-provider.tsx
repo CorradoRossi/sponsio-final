@@ -44,6 +44,9 @@ export const SocketProvider = ({
       setIsConnected(false);
     });
 
+    console.log(process.env, "process env");
+    console.log(socketInstance, "socket instance");
+
     setSocket(socketInstance);
 
     return () => {
