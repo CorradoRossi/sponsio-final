@@ -34,9 +34,10 @@ export const SocketProvider = ({
     const socketInstance = new (ClientIO as any)(process.env.NEXT_PUBLIC_SITE_URL!, {
       path: "/api/socket/io",
       addTrailingSlash: false,
+      reconnection: false,
       skipReconnect: true,
       reconnectionDelay: 10000,
-      reconnectionAttempts: 10,
+      reconnectionAttempts: 5,
     });
 
     socketInstance.on("connect", () => {
